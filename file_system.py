@@ -21,7 +21,7 @@ class FileEventHandler(FileSystemEventHandler):
         print(f"Hey, {event.src_path} has been modified!")
     
     def on_moved(self,event):
-         print("Hey,{even.src_path} has been moved!")
+         print(f"Hey,{event.src_path} has been moved to {event.dest_path}")
 
 event_handler  = FileEventHandler()
 observer = Observer()
@@ -33,7 +33,6 @@ try :
     while True :
         time.sleep(2)
         print("Running...")
-
 except keyboardInterrupt : 
     print("Stopped")
     observer.stop()
